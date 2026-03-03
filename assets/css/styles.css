@@ -161,7 +161,6 @@ a{color:inherit;text-decoration:none}
   gap:14px;
 }
 
-/* Add ALL spans you use */
 .col-1{grid-column: span 1}
 .col-2{grid-column: span 2}
 .col-3{grid-column: span 3}
@@ -169,7 +168,7 @@ a{color:inherit;text-decoration:none}
 .col-5{grid-column: span 5}
 .col-6{grid-column: span 6}
 .col-7{grid-column: span 7}
-.col-8{grid-column: span 8}   /* ✅ was missing */
+.col-8{grid-column: span 8}
 .col-9{grid-column: span 9}
 .col-10{grid-column: span 10}
 .col-11{grid-column: span 11}
@@ -201,17 +200,36 @@ a{color:inherit;text-decoration:none}
 .feature p{margin:8px 0 0;color:rgba(255,255,255,.86);font-size:14px}
 
 /* =========================
-   PRODUCTS
+   PRODUCTS (UPDATED FOR IMAGES)
    ========================= */
 .productGrid{display:grid;grid-template-columns:repeat(12,1fr);gap:14px}
 .productCard{grid-column:span 4}
+
 .productImg{
-  height:170px;border-radius: var(--radius2);
-  border:1px dashed rgba(255,255,255,.25);
-  background: rgba(255,255,255,.06);
-  display:flex;align-items:center;justify-content:center;
-  color: rgba(255,255,255,.70);
+  height:170px;
+  border-radius: var(--radius2);
+  border:1px solid rgba(255,255,255,.12);   /* ✅ solid border (no dashed) */
+  background: rgba(255,255,255,.05);
+  overflow:hidden;                           /* ✅ ensures image stays inside */
+  position:relative;
 }
+
+/* ✅ image fit + smooth hover */
+.productImg img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+  border-radius: var(--radius2);
+  transform: scale(1);
+  transition: transform .25s ease;
+}
+
+/* ✅ subtle zoom on card hover */
+.productCard:hover .productImg img{
+  transform: scale(1.03);
+}
+
 .tagRow{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
 .tag{
   font-size:12px;padding:6px 10px;border-radius:999px;
@@ -339,7 +357,6 @@ a{color:inherit;text-decoration:none}
 @media (max-width: 980px){
   .productCard{grid-column:span 6}
 
-  /* stack main cols cleanly */
   .col-4,
   .col-6,
   .col-8{
