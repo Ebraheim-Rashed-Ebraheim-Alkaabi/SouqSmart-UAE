@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>SouqSmart UAE — AI-ready E-commerce Prototype</title>
+  <meta name="description" content="Modern, colorful, AI-ready e-commerce prototype (2026 trends) with chatbot + bundle quiz + checkout mock." />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body>
+  <!-- NAV -->
+  <header class="nav">
+    <div class="container navInner">
+      <a class="brand" href="index.html" aria-label="SouqSmart Home">
+        <span class="dot"></span>
+        <span>SouqSmart UAE</span>
+      </a>
+
+      <nav class="navLinks" aria-label="Primary">
+        <a href="products.html">Shop</a>
+        <a href="report.html">Report</a>
+        <a href="pitch.html">Pitch</a>
+        <a class="btn btnPrimary" href="cart.html">Cart <span id="cartBadge" class="badge" style="display:none">0</span></a>
+      </nav>
+
+      <button id="burger" class="btn burger" aria-label="Open menu" aria-expanded="false">Menu</button>
+    </div>
+
+    <div id="mobileNav" class="container mobileNav" aria-label="Mobile">
+      <a href="products.html">Shop</a>
+      <a href="report.html">Report</a>
+      <a href="pitch.html">Pitch</a>
+      <a href="cart.html">Cart</a>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container">
+      <div class="heroCard">
+        <div class="heroTop">
+          <div class="heroContent">
+            <h1 class="h1">Your weekly essentials — auto-bundled for life in the UAE.</h1>
+            <p class="sub">
+              2026-style commerce: <b>conversational shopping</b>, <b>hyper-personalization</b>, and
+              <b>mobile-first</b> performance. Build a smart bundle in seconds.
+            </p>
+            <div class="pills" aria-label="Highlights">
+              <span class="pill">AI Chat</span>
+              <span class="pill">Bundle Quiz</span>
+              <span class="pill">Fraud Risk Score (mock)</span>
+              <span class="pill">Accessibility-ready</span>
+              <span class="pill">UAE startup concept</span>
+            </div>
+
+            <div class="row" style="margin-top:18px;flex-wrap:wrap">
+              <a class="btn btnGradient" href="products.html">Browse Shop →</a>
+              <a class="btn" href="products.html#quiz">Try Bundle Quiz →</a>
+              <a class="btn" href="pitch.html">Read the USP →</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="heroBottom">
+          <div class="kpi">
+            <div>
+              <strong>Fast Setup</strong><br />
+              <span>Static site, GitHub Pages ready</span>
+            </div>
+          </div>
+          <div class="kpi">
+            <div>
+              <strong>AI Integration</strong><br />
+              <span>Chat + personalized bundle engine</span>
+            </div>
+          </div>
+          <div class="kpi">
+            <div>
+              <strong>Security Demo</strong><br />
+              <span>Rate limit + fraud scoring mock</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <h2 class="sectionTitle">What makes it “2026 trend-ready”</h2>
+      <div class="grid">
+        <div class="col-4 feature featureGrad">
+          <strong>Conversational Commerce</strong>
+          <p>Built-in AI assistant UI for fast decisions and support.</p>
+        </div>
+        <div class="col-4 feature featureGrad2">
+          <strong>Hyper-Personalization</strong>
+          <p>Intent-to-bundle quiz that adapts to lifestyle goals.</p>
+        </div>
+        <div class="col-4 feature">
+          <strong>Performance + Mobile First</strong>
+          <p>Lightweight static pages; responsive & accessible layout.</p>
+        </div>
+      </div>
+
+      <h2 class="sectionTitle">Marketing automation (prototype)</h2>
+      <div class="card">
+        <div class="cardPad">
+          <p class="cardTitle">Subscribe for personalized offers</p>
+          <p class="muted">This simulates onboarding flows (email capture). In production, connect to Klaviyo/Mailchimp + AI segmentation.</p>
+          <div class="row" style="margin-top:12px;flex-wrap:wrap">
+            <input id="newsEmail" class="input" style="max-width:420px" placeholder="you@example.com" aria-label="Email for newsletter" />
+            <button id="newsBtn" class="btn btnGradient">Subscribe</button>
+          </div>
+          <p id="newsMsg" class="small" style="margin-top:10px"></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CHAT WIDGET -->
+  <button id="chatOpen" class="chatOpen" aria-label="Open chat" aria-expanded="false">Chat with AI ✨</button>
+  <div id="chatPanel" class="chatPanel" role="dialog" aria-label="SouqSmart AI Chat">
+    <div class="chatHeader">
+      <strong>SouqSmart AI</strong>
+      <button id="chatClose" aria-label="Close chat">Close</button>
+    </div>
+    <div id="chatMessages" class="chatMessages" aria-live="polite"></div>
+    <div class="chatInputRow">
+      <input id="chatInput" class="input" placeholder="e.g., Dubai, wellness, premium..." aria-label="Chat input" />
+      <button id="chatSend" class="btn btnPrimary">Send</button>
+    </div>
+    <div class="small" style="padding:0 12px 12px">
+      Prototype AI (rules) + security rate limit demo.
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container grid">
+      <div class="col-6">
+        <p class="cardTitle">SouqSmart UAE</p>
+        <p class="muted">AI-ready e-commerce prototype for assignment submission. Payments and fulfillment are mocked.</p>
+      </div>
+      <div class="col-3">
+        <p class="cardTitle">Pages</p>
+        <p class="small"><a href="products.html">Shop</a><br/><a href="pitch.html">Pitch</a><br/><a href="report.html">Report</a></p>
+      </div>
+      <div class="col-3">
+        <p class="cardTitle">Contact</p>
+        <p class="small">support@souqsmart.example</p>
+      </div>
+      <div class="col-12 small">© 2026 Prototype — Academic submission</div>
+    </div>
+  </footer>
+
+  <script src="assets/js/products-data.js"></script>
+  <script src="assets/js/app.js"></script>
+  <script src="assets/js/ai.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      initChatWidget();
+
+      const btn = document.querySelector("#newsBtn");
+      const email = document.querySelector("#newsEmail");
+      const msg = document.querySelector("#newsMsg");
+
+      btn.addEventListener("click", () => {
+        const v = email.value.trim();
+        if (!v.includes("@")) {
+          msg.textContent = "Please enter a valid email.";
+          return;
+        }
+        subscribeNewsletter(v);
+        track("newsletter_subscribe", { email: v });
+        msg.textContent = "Subscribed ✓ (prototype). In production this triggers a welcome flow.";
+        email.value = "";
+      });
+    });
+  </script>
+</body>
+</html>
