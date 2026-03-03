@@ -1,0 +1,15 @@
+souqsmart-static/
+  index.html
+  products.html
+  product.html
+  cart.html
+  checkout.html
+  pitch.html
+  report.html
+  assets/
+    css/
+      styles.css
+    js/
+      app.js
+      products-data.js
+      ai.js
