@@ -32,7 +32,17 @@
     <div class="grid" style="margin-top:12px">
       <div class="col-6 card">
         <div class="cardPad">
-          <div class="productImg" style="height:260px">Image placeholder (replace with Midjourney)</div>
+          <!-- ✅ IMAGE FIXED -->
+          <div class="productImg" style="height:260px; overflow:hidden">
+            <img
+              id="pImage"
+              src=""
+              alt=""
+              style="width:100%;height:100%;object-fit:cover;display:block"
+              onerror="this.style.display='none'; this.parentElement.textContent='Image failed to load';"
+            />
+          </div>
+
           <div id="pTags" class="tagRow"></div>
         </div>
       </div>
@@ -91,6 +101,11 @@
       $("#pDesc").textContent = p.description;
       $("#pPrice").textContent = formatAED(p.price);
       $("#pDelivery").textContent = p.delivery;
+
+      // ✅ NEW: show image on page load
+      const img = document.getElementById("pImage");
+      img.src = p.image;
+      img.alt = p.name;
 
       $("#pBullets").innerHTML = p.bullets.map(b=>`<li>${b}</li>`).join("");
       $("#pTags").innerHTML = `
