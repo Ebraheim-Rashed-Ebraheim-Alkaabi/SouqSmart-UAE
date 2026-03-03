@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Cart — SouqSmart UAE</title>
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body>
+  <header class="nav">
+    <div class="container navInner">
+      <a class="brand" href="index.html"><span class="dot"></span><span>SouqSmart UAE</span></a>
+      <nav class="navLinks">
+        <a href="products.html">Shop</a>
+        <a href="report.html">Report</a>
+        <a href="pitch.html">Pitch</a>
+        <a class="btn btnPrimary" href="cart.html">Cart <span id="cartBadge" class="badge" style="display:none">0</span></a>
+      </nav>
+      <button id="burger" class="btn burger" aria-label="Open menu" aria-expanded="false">Menu</button>
+    </div>
+    <div id="mobileNav" class="container mobileNav">
+      <a href="products.html">Shop</a>
+      <a href="report.html">Report</a>
+      <a href="pitch.html">Pitch</a>
+      <a href="cart.html">Cart</a>
+    </div>
+  </header>
+
+  <main class="container" style="padding:22px 0 40px">
+    <h1 class="sectionTitle" style="margin-top:18px">Cart</h1>
+    <p class="muted">Review items before checkout (prototype).</p>
+
+    <div class="grid" style="margin-top:16px">
+      <div class="col-8 card">
+        <div class="cardPad">
+          <div id="cartItems"></div>
+          <div class="row" style="margin-top:12px;flex-wrap:wrap">
+            <button id="clearCart" class="btn">Clear Cart</button>
+            <a class="btn" href="products.html">Continue shopping</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-4 card">
+        <div class="cardPad">
+          <p class="cardTitle">Order Summary</p>
+          <div class="hr"></div>
+          <div class="row" style="justify-content:space-between">
+            <span class="muted">Subtotal</span>
+            <strong id="subTotal"></strong>
+          </div>
+          <div class="row" style="justify-content:space-between;margin-top:10px">
+            <span class="muted">Estimated VAT (5%)</span>
+            <strong id="vat"></strong>
+          </div>
+          <div class="hr"></div>
+          <a id="checkoutBtn" class="btn btnGradient" href="checkout.html">Proceed to Checkout →</a>
+          <p class="small" style="margin-top:10px">Payments are mocked for this prototype.</p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container grid">
+      <div class="col-12 small">Prototype only — payments/fulfillment are mocked.</div>
+    </div>
+  </footer>
+
+  <script src="assets/js/products-data.js"></script>
+  <script src="assets/js/app.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const products = window.SOUQSMART_PRODUCTS;
+      const itemsDiv = document.querySelector("#cartItems");
+
+      function render(){
+        const cart = loadCart();
+        if (cart.length === 0){
+          itemsDiv.innerHTML = `
+            <div class="card" style="background:rgba(255,255,255,.05)">
+              <div class="cardPad">
+                <p class="muted">Your cart is empty.</p>
+                <a class="btn btnGradient" href="products.html">Shop products →</a>
+              </div>
+            </div>
+          `;
+          $("#checkoutBtn").style.opacity = .45;
+          $("#checkoutBtn").style.pointerEvents = "none";
+        } else {
+          $("#checkoutBtn").style.opacity = 1;
+          $("#checkoutBtn").style.pointerEvents = "auto";
+
+          itemsDiv.innerHTML = cart.map(ci => {
+            const p = products.find(x=>x.id===ci.id);
+            if (!p) return "";
+            return `
+              <div class="card" style="background:rgba(255,255,255,.05);margin-bottom:12px">
+                <div class="cardPad">
+                  <div class="row" style="justify-content:space-between;align-items:flex-start">
+                    <div>
+                      <p class="cardTitle">${p.name}</p>
+                      <p class="muted">${formatAED(p.price)} × ${ci.qty}</p>
+                    </div>
+                    <button class="btn" data-remove="${p.id}">Remove</button>
+                  </div>
+                </div>
+              </div>
+            `;
+          }).join("");
+
+          $$$("[data-remove]").forEach(btn => {
+            btn.addEventListener("click", () => {
+              removeFromCart(btn.getAttribute("data-remove"));
+              track("remove_from_cart", { id: btn.getAttribute("data-remove") });
+              render();
+            });
+          });
+        }
+
+        const total = cartTotal(products);
+        $("#subTotal").textContent = formatAED(total);
+        $("#vat").textContent = formatAED(total * 0.05);
+      }
+
+      $("#clearCart").addEventListener("click", () => {
+        clearCart();
+        track("clear_cart");
+        render();
+      });
+
+      render();
+    });
+  </script>
+</body>
+</html>
