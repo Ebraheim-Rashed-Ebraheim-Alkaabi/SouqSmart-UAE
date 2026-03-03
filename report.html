@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Analytical Report — SouqSmart UAE</title>
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body>
+  <header class="nav">
+    <div class="container navInner">
+      <a class="brand" href="index.html"><span class="dot"></span><span>SouqSmart UAE</span></a>
+      <nav class="navLinks">
+        <a href="products.html">Shop</a>
+        <a href="report.html">Report</a>
+        <a href="pitch.html">Pitch</a>
+        <a class="btn btnPrimary" href="cart.html">Cart <span id="cartBadge" class="badge" style="display:none">0</span></a>
+      </nav>
+      <button id="burger" class="btn burger" aria-label="Open menu" aria-expanded="false">Menu</button>
+    </div>
+    <div id="mobileNav" class="container mobileNav">
+      <a href="products.html">Shop</a>
+      <a href="report.html">Report</a>
+      <a href="pitch.html">Pitch</a>
+      <a href="cart.html">Cart</a>
+    </div>
+  </header>
+
+  <main class="container" style="padding:22px 0 40px">
+    <h1 class="sectionTitle" style="margin-top:18px">2–3 Page Analytical Report (Web Version)</h1>
+    <p class="muted">You can print this page to PDF for submission (Ctrl+P → Save as PDF).</p>
+
+    <div class="card" style="margin-top:16px">
+      <div class="cardPad">
+        <p class="cardTitle">1) Business overview</p>
+        <p class="muted">
+          SouqSmart is a UAE-focused e-commerce startup that sells curated “smart bundles” of weekly essentials
+          and lifestyle kits. The target audience is busy UAE residents (25–45), dual-income households,
+          and new expats who value convenience, personalization, and fast delivery.
+        </p>
+
+        <div class="hr"></div>
+        <p class="cardTitle">2) Technical platform decision</p>
+        <p class="muted">
+          This prototype uses a static HTML/CSS/JS architecture for maximum simplicity, speed, and easy deployment
+          on GitHub Pages. It demonstrates core e-commerce flows and “AI-ready” integration points.
+          In production, the same UI can be migrated to Shopify/BigCommerce headless or a custom backend
+          depending on growth needs.
+        </p>
+
+        <div class="hr"></div>
+        <p class="cardTitle">3) Information architecture & UI decisions</p>
+        <p class="muted">
+          Pages include: Homepage (value proposition), Shop (product grid + AI quiz), Product detail (structured layout),
+          Cart, Checkout (mock), Pitch (USP). The UI is mobile-first with responsive grids, accessible form labels,
+          and clear CTAs. Visual style uses modern gradients and glassmorphism inspired by 2026 UI trends.
+        </p>
+
+        <div class="hr"></div>
+        <p class="cardTitle">4) AI integration strategy (MVP → V2)</p>
+        <p class="muted">
+          AI is demonstrated through two features: (a) an on-site chatbot (prototype rules engine) for support and product discovery,
+          and (b) a bundle recommender quiz that generates a personalized bundle and explains “why” it fits.
+          The roadmap upgrades these to an ML recommender using a preference graph and substitution history, plus conversational editing
+          (swap items, change budget) and AI-generated bilingual content (EN/AR).
+        </p>
+
+        <div class="hr"></div>
+        <p class="cardTitle">5) Marketing automation & personalization</p>
+        <p class="muted">
+          The homepage includes newsletter capture, representing onboarding flows and retention sequences.
+          In production, this integrates with tools like Klaviyo/Mailchimp and adds AI-based segmentation
+          (LTV prediction, churn risk, propensity scoring) for personalized offers.
+        </p>
+
+        <div class="hr"></div>
+        <p class="cardTitle">6) Security & fraud detection</p>
+        <p class="muted">
+          Checkout includes a fraud risk score simulation based on order factors (email validity, cart total, and city),
+          plus chat rate limiting as an abuse-control demo. In production, a payment provider fraud engine,
+          device fingerprinting, and velocity rules would be added, alongside HTTPS, CSP headers, and WAF/CDN.
+        </p>
+
+        <div class="hr"></div>
+        <p class="cardTitle">7) External AI tools integration (planned)</p>
+        <p class="muted">
+          The design explicitly supports external AI tooling: ChatGPT/OpenAI (chat + content), Midjourney (product imagery placeholders),
+          Google Analytics (behavior analytics), and Meta Ads AI (campaign optimization). The track() function is a placeholder
+          for GA4/Pixel events (view_product, add_to_cart, place_order).
+        </p>
+
+        <div class="hr"></div>
+        <p class="cardTitle">8) Conclusion</p>
+        <p class="muted">
+          SouqSmart is designed for a scalable subscription-driven model, where personalization and repeat purchase are key.
+          The “Intent-to-Bundle Engine” forms a defensible moat through data accumulation (preferences + substitutions),
+          enabling higher retention and stronger unit economics than standard e-commerce catalogs.
+        </p>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container grid">
+      <div class="col-12 small">Tip: Print this page as PDF for submission.</div>
+    </div>
+  </footer>
+
+  <script src="assets/js/app.js"></script>
+</body>
+</html>
