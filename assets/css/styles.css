@@ -1,4 +1,8 @@
 /* assets/css/styles.css */
+
+/* =========================
+   THEME
+   ========================= */
 :root{
   --bg: #0b1020;
   --card: rgba(255,255,255,.08);
@@ -19,6 +23,7 @@
 
 *{box-sizing:border-box}
 html,body{height:100%}
+
 body{
   margin:0;
   font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
@@ -36,6 +41,9 @@ a{color:inherit;text-decoration:none}
 .row{display:flex;gap:14px;align-items:center}
 .stack{display:flex;flex-direction:column;gap:14px}
 
+/* =========================
+   NAV
+   ========================= */
 .nav{
   position:sticky;top:0;z-index:1000;
   backdrop-filter: blur(14px);
@@ -57,12 +65,14 @@ a{color:inherit;text-decoration:none}
 .navLinks{display:flex;gap:14px;align-items:center}
 .navLinks a{opacity:.9;font-size:14px}
 .navLinks a:hover{opacity:1;text-decoration:underline}
+
 .badge{
   display:inline-flex;align-items:center;justify-content:center;
   min-width:20px;height:20px;border-radius:999px;
   background:#111827;border:1px solid rgba(255,255,255,.18);
   font-size:12px;padding:0 6px;
 }
+
 .btn{
   border:1px solid var(--border);
   background: rgba(255,255,255,.06);
@@ -92,6 +102,9 @@ a{color:inherit;text-decoration:none}
 .mobileNav.open{display:block}
 .mobileNav a{display:block;padding:10px 0;opacity:.9}
 
+/* =========================
+   HERO
+   ========================= */
 .hero{
   padding:60px 0 20px;
   position:relative;
@@ -139,15 +152,32 @@ a{color:inherit;text-decoration:none}
 .kpi strong{font-size:14px}
 .kpi span{font-size:12px;color:var(--muted)}
 
+/* =========================
+   GRID (FIXED + COMPLETE)
+   ========================= */
 .grid{
   display:grid;
   grid-template-columns: repeat(12, 1fr);
   gap:14px;
 }
+
+/* Add ALL spans you use */
+.col-1{grid-column: span 1}
+.col-2{grid-column: span 2}
+.col-3{grid-column: span 3}
 .col-4{grid-column: span 4}
+.col-5{grid-column: span 5}
 .col-6{grid-column: span 6}
+.col-7{grid-column: span 7}
+.col-8{grid-column: span 8}   /* ✅ was missing */
+.col-9{grid-column: span 9}
+.col-10{grid-column: span 10}
+.col-11{grid-column: span 11}
 .col-12{grid-column: span 12}
 
+/* =========================
+   CARDS / SECTIONS
+   ========================= */
 .card{
   border-radius: var(--radius);
   background: rgba(255,255,255,.06);
@@ -170,6 +200,9 @@ a{color:inherit;text-decoration:none}
 .feature strong{display:block;font-size:16px}
 .feature p{margin:8px 0 0;color:rgba(255,255,255,.86);font-size:14px}
 
+/* =========================
+   PRODUCTS
+   ========================= */
 .productGrid{display:grid;grid-template-columns:repeat(12,1fr);gap:14px}
 .productCard{grid-column:span 4}
 .productImg{
@@ -189,6 +222,9 @@ a{color:inherit;text-decoration:none}
 
 .hr{height:1px;background:var(--border);margin:14px 0}
 
+/* =========================
+   FORMS
+   ========================= */
 .input, select, textarea{
   width:100%;
   padding:12px 14px;
@@ -203,6 +239,9 @@ a{color:inherit;text-decoration:none}
   border-color: rgba(99,102,241,.55);
 }
 
+/* =========================
+   FOOTER
+   ========================= */
 .footer{
   margin-top:38px;
   border-top:1px solid var(--border);
@@ -212,6 +251,9 @@ a{color:inherit;text-decoration:none}
 }
 .small{font-size:12px;color:var(--muted)}
 
+/* =========================
+   TOAST
+   ========================= */
 .toast{
   position:fixed;left:50%;bottom:22px;transform:translateX(-50%) translateY(18px);
   background: rgba(0,0,0,.70);
@@ -224,7 +266,9 @@ a{color:inherit;text-decoration:none}
 }
 .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
 
-/* Chat Widget */
+/* =========================
+   CHAT WIDGET
+   ========================= */
 .chatOpen{
   position:fixed;right:18px;bottom:18px;z-index:999;
   background: var(--g1);
@@ -282,21 +326,37 @@ a{color:inherit;text-decoration:none}
 }
 .chat-msg.bot{background: rgba(255,255,255,.06)}
 .chat-msg.user{background: rgba(0,0,0,.55); margin-left:auto}
+
 .chatInputRow{
   padding:12px; border-top:1px solid var(--border);
   display:flex; gap:10px;
 }
 .chatInputRow input{flex:1}
 
-/* Responsive */
+/* =========================
+   RESPONSIVE (FIXED)
+   ========================= */
 @media (max-width: 980px){
   .productCard{grid-column:span 6}
-  .col-4{grid-column: span 6}
+
+  /* stack main cols cleanly */
+  .col-4,
+  .col-6,
+  .col-8{
+    grid-column: span 12;
+  }
 }
+
 @media (max-width: 700px){
   .navLinks{display:none}
   .burger{display:inline-flex}
+
   .productCard{grid-column:span 12}
-  .col-4, .col-6{grid-column: span 12}
+
+  .col-1,.col-2,.col-3,.col-4,.col-5,.col-6,
+  .col-7,.col-8,.col-9,.col-10,.col-11,.col-12{
+    grid-column: span 12;
+  }
+
   .h1{font-size:34px}
 }
